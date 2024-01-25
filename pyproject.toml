@@ -28,10 +28,6 @@ dev = [
 ]
 
 tests = [
-    "electronicparsers@git+https://github.com/nomad-coe/electronic-parsers.git@develop",
-    "atomisticparsers@git+https://github.com/nomad-coe/atomistic-parsers.git@develop",
-    "workflowparsers@git+https://github.com/nomad-coe/workflow-parsers.git@master",
-    "eelsdbconverter@git+https://github.com/nomad-coe/nomad-parser-eelsdb.git@develop",
     "nomad-schema-plugin-run@git+https://github.com/nomad-coe/nomad-schema-plugin-run.git@develop",
     "nomad-schema-plugin-simulation-workflow@git+https://github.com/nomad-coe/nomad-schema-plugin-simulation-workflow.git@develop",
 ]
