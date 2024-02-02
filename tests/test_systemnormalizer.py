@@ -17,7 +17,7 @@
 #
 
 import pytest
-import ase
+import ase.build
 import numpy as np
 from logging import LogRecord
 import json
