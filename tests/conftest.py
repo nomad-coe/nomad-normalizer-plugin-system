@@ -20,6 +20,7 @@ import pytest
 import ase
 import numpy as np
 import json
+from typing import Tuple
 
 from nomad.utils import get_logger
 from nomad.units import ureg
@@ -197,7 +198,7 @@ def get_template_for_structure(atoms) -> EntryArchive:
         runschema.calculation.BandEnergies()
     )
     template.run[0].calculation[0].eigenvalues[0].kpoints = [[0, 0, 0]]
-    template.run[0].system = None
+    template.run[0].system = []
 
     # Fill structural information
     # system = template.run[0].m_create(System)
@@ -219,7 +220,7 @@ def parsed_example(request) -> EntryArchive:
 
 
 @pytest.fixture
-def normalized_example(parsed_example: [str, EntryArchive]) -> EntryArchive:
+def normalized_example(parsed_example: Tuple[str, EntryArchive]) -> EntryArchive:
     run_normalize(parsed_example[1])
     return parsed_example
 
