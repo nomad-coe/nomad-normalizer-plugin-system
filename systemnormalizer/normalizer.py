@@ -33,6 +33,7 @@ from matid.classification.classifications import (
 )  # pylint: disable=import-error
 
 from nomad import atomutils
+from nomad.datamodel import EntryArchive
 from nomad.atomutils import Formula
 from nomad.units import ureg
 from nomad import utils, config
@@ -97,17 +98,18 @@ class SystemNormalizer(SystemBasedNormalizer):
 
         return 0
 
-    def normalize_system(self, system, is_representative) -> bool:
+    def normalize_system(self, archive: EntryArchive, system, is_representative) -> bool:
         """
         The 'main' method of this :class:`SystemBasedNormalizer`.
         Normalizes the section with the given `index`.
         Normalizes geometry, classifies, system_type, and runs symmetry analysis.
 
-        Returns: True, iff the normalization was successful
+        Returns: True, if the normalization was successful
         """
-        if self.section_run is None:
+        if archive.run is None:
             self.logger.error("section_run is not present.")
             return False
+        section_run = archive.run[0]
 
         atoms_cls = system.m_def.all_sub_sections["atoms"].sub_section.section_cls
         if system.atoms is None:
@@ -280,7 +282,7 @@ class SystemNormalizer(SystemBasedNormalizer):
                     "system classification executed",
                     system_size=len(atoms),
                 ):
-                    self.system_type_analysis(atoms)
+                    self.system_type_analysis(section_run, atoms)
 
             # Symmetry analysis
             if (
@@ -291,14 +293,14 @@ class SystemNormalizer(SystemBasedNormalizer):
                 with utils.timer(
                     self.logger, "symmetry analysis executed", system_size=len(atoms)
                 ):
-                    self.symmetry_analysis(system, atoms)
+                    self.symmetry_analysis(section_run, system, atoms)
 
         return True
 
-    def system_type_analysis(self, atoms: ase.Atoms) -> None:
+    def system_type_analysis(self, section_run, atoms: ase.Atoms) -> None:
         """
         Determine the system type with MatID. Write the system type to the
-        entry_archive.
+        archive.
 
         Args:
             atoms: The structure to analyse
@@ -334,24 +336,24 @@ class SystemNormalizer(SystemBasedNormalizer):
                     system_type = "2D"
         else:
             self.logger.info("system type analysis not run due to large system size")
-        idx = self.section_run.m_cache["representative_system_idx"]
-        self.section_run.m_cache["classification"] = classification
-        self.section_run.system[idx].type = system_type
-        self.section_run.system[-1].type = system_type
+        idx = section_run.m_cache["representative_system_idx"]
+        section_run.m_cache["classification"] = classification
+        section_run.system[idx].type = system_type
+        section_run.system[-1].type = system_type
 
-    def symmetry_analysis(self, system, atoms: ase.Atoms) -> None:
+    def symmetry_analysis(self, section_run, system, atoms: ase.Atoms) -> None:
         """Analyze the symmetry of the material being simulated. Only performed
         for bulk materials.
 
         We feed in the parsed values in section_system to the the symmetry
-        analyzer. The analysis results are written to the entry_archive.
+        analyzer. The analysis results are written to the archive.
 
         Args:
             atoms: The atomistic structure to analyze.
 
         Returns:
             None: The method should write symmetry variables
-            to the entry_archive which is member of this class.
+            to the archive.
         """
         # Try to use MatID's symmetry analyzer to analyze the ASE object.
         try:
@@ -440,21 +442,21 @@ class SystemNormalizer(SystemBasedNormalizer):
         sec_orig.wyckoff_letters = orig_wyckoff
         sec_orig.equivalent_atoms = orig_equivalent_atoms
 
-        self.springer_classification(atoms, space_group_number)  # Springer Normalizer
-        self.prototypes(system, conv_num, conv_wyckoff, space_group_number)
+        self.springer_classification(section_run, atoms, space_group_number)  # Springer Normalizer
+        self.prototypes(section_run, conv_num, conv_wyckoff, space_group_number)
 
-    def springer_classification(self, atoms, space_group_number):
+    def springer_classification(self, section_run, atoms, space_group_number):
         normalized_formula = formula_normalizer(atoms)
         springer_data = query_springer_data(normalized_formula, space_group_number)
-        idx = self.section_run.m_cache["representative_system_idx"]
+        idx = section_run.m_cache["representative_system_idx"]
 
         for material in springer_data.values():
             sec_springer_mat = (
-                self.section_run.system[idx]
+                section_run.system[idx]
                 .m_def.all_sub_sections["springer_material"]
                 .sub_section.section_cls()
             )
-            self.section_run.system[idx].springer_material.append(sec_springer_mat)
+            section_run.system[idx].springer_material.append(sec_springer_mat)
 
             sec_springer_mat.id = material["spr_id"]
             sec_springer_mat.alphabetical_formula = material["spr_aformula"]
@@ -491,7 +493,7 @@ class SystemNormalizer(SystemBasedNormalizer):
                     self.logger.info("Mismatch in Springer classification or compounds")
 
     def prototypes(
-        self, system, atom_species: NDArray, wyckoffs: NDArray, spg_number: int
+        self, section_run, atom_species: NDArray, wyckoffs: NDArray, spg_number: int
     ) -> None:
         """Tries to match the material to an entry in the AFLOW prototype data.
         If a match is found, a section_prototype is added to section_system.
@@ -514,13 +516,13 @@ class SystemNormalizer(SystemBasedNormalizer):
                 aflow_prototype_name,
                 protoDict.get("Pearsons Symbol", "-"),
             )
-            idx = self.section_run.m_cache["representative_system_idx"]
+            idx = section_run.m_cache["representative_system_idx"]
             sec_prototype = (
-                self.section_run.system[idx]
+                section_run.system[idx]
                 .m_def.all_sub_sections["prototype"]
                 .sub_section.section_cls()
             )
-            self.section_run.system[idx].prototype.append(sec_prototype)
+            section_run.system[idx].prototype.append(sec_prototype)
             sec_prototype.label = prototype_label
             sec_prototype.aflow_id = aflow_prototype_id
             sec_prototype.aflow_url = aflow_prototype_url
