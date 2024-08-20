@@ -22,11 +22,8 @@ import numpy as np
 import json
 from typing import Tuple
 
-import runschema  # noqa
-import simulationworkflowschema  # noqa
-runschema.run_schema_entry_point.load()
-simulationworkflowschema.simulationworkflow_schema_entry_point.load()
-
+import runschema
+import simulationworkflowschema
 from nomad.utils import get_logger
 from nomad.units import ureg
 from nomad.datamodel import EntryArchive
@@ -258,8 +255,10 @@ def molecular_dynamics() -> EntryArchive:
             potential=runschema.calculation.EnergyEntry(value=step),
         )
         rg_values = runschema.calculation.RadiusOfGyrationValues(
-            value=step, label="MOL", atomsgroup_ref=system
+            value=step, label="MOL"
         )
+        if system.atoms_group:
+            rg_values.atomsgroup_ref = system.atoms_group[0]
         calc.radius_of_gyration = [
             runschema.calculation.RadiusOfGyration(
                 kind="molecular",
@@ -273,7 +272,7 @@ def molecular_dynamics() -> EntryArchive:
     diff_values = simulationworkflowschema.molecular_dynamics.DiffusionConstantValues(
         value=2.1,
         error_type="Pearson correlation coefficient",
-        errors=0.98,
+        errors=[0.98],
     )
     msd_values = (
         simulationworkflowschema.molecular_dynamics.MeanSquaredDisplacementValues(

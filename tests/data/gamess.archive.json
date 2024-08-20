@@ -1,7 +1,6 @@
 {
   "run": [
     {
-      "m_def": "runschema.run.Run",
       "program": {
         "version": "1 MAY 2013 (R1)"
       },
@@ -302,9 +301,15 @@
               "kind": "electrostatic",
               "dipole": {
                 "value": [
-                  0.0,
-                  0.0,
-                  1.515763
+                  [
+                    0.0
+                  ],
+                  [
+                    0.0
+                  ],
+                  [
+                    1.515763
+                  ]
                 ]
               }
             }
@@ -962,9 +967,15 @@
               "kind": "electrostatic",
               "dipole": {
                 "value": [
-                  0.0,
-                  0.0,
-                  1.414184
+                  [
+                    0.0
+                  ],
+                  [
+                    0.0
+                  ],
+                  [
+                    1.414184
+                  ]
                 ]
               }
             }
@@ -1092,7 +1103,7 @@
     }
   ],
   "metadata": {
-    "mainfile": "/home/alvin/work/nomad2/nomad/dependencies/normalizers/simulation/system/tests/data/gamess/exam01.out",
+    "mainfile": "/home/alvin/work/nomad2/nomad-normalizer-plugin-system/tests/data/gamess/exam01.out",
     "domain": "dft"
   }
 }

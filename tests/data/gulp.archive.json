@@ -1,7 +1,6 @@
 {
   "run": [
     {
-      "m_def": "runschema.run.Run",
       "x_gulp_title": "Example of defect impurity calc : Li substituted into MgO",
       "x_gulp_n_cpu": 1,
       "x_gulp_host_name": "M-A0002884.local",
@@ -21,8 +20,10 @@
                 "contributions": [
                   {
                     "atom_labels": [
-                      "Mg",
-                      "O"
+                      [
+                        "Mg",
+                        "O"
+                      ]
                     ],
                     "functional_form": "Buckingham",
                     "parameters": {
@@ -36,8 +37,10 @@
                   },
                   {
                     "atom_labels": [
-                      "Li",
-                      "O"
+                      [
+                        "Li",
+                        "O"
+                      ]
                     ],
                     "functional_form": "Buckingham",
                     "parameters": {
@@ -51,8 +54,10 @@
                   },
                   {
                     "atom_labels": [
-                      "O",
-                      "O"
+                      [
+                        "O",
+                        "O"
+                      ]
                     ],
                     "functional_form": "Buckingham",
                     "parameters": {
@@ -66,8 +71,10 @@
                   },
                   {
                     "atom_labels": [
-                      "O",
-                      "O"
+                      [
+                        "O",
+                        "O"
+                      ]
                     ],
                     "functional_form": "Spring (c-s)",
                     "parameters": {
@@ -943,7 +950,7 @@
     }
   },
   "metadata": {
-    "mainfile": "/home/alvin/work/nomad2/nomad/dependencies/normalizers/simulation/system/tests/data/gulp/example6.got",
+    "mainfile": "/home/alvin/work/nomad2/nomad-normalizer-plugin-system/tests/data/gulp/example6.got",
     "domain": "dft"
   }
 }
