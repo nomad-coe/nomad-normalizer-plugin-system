@@ -22,8 +22,7 @@ import numpy as np
 import json
 from typing import Tuple
 
-import runschema
-import simulationworkflowschema
+from nomad.datamodel.metainfo import runschema, simulationworkflowschema
 from nomad.utils import get_logger
 from nomad.units import ureg
 from nomad.datamodel import EntryArchive
