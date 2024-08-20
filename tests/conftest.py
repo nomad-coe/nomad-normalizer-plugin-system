@@ -22,10 +22,11 @@ import numpy as np
 import json
 from typing import Tuple
 
-from nomad.datamodel.metainfo import runschema, simulationworkflowschema
+from nomad.datamodel import EntryArchive
+import runschema
+import simulationworkflowschema
 from nomad.utils import get_logger
 from nomad.units import ureg
-from nomad.datamodel import EntryArchive
 from nomad.metainfo import MSection, Quantity, SubSection, Section
 from nomad.normalizing import normalizers
 
