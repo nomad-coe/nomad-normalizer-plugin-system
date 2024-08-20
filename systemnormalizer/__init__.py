@@ -15,4 +15,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-from .normalizer import SystemNormalizer
+from nomad.config.models.plugins import NormalizerEntryPoint
+
+
+class SystemNormalizerEntryPoint(NormalizerEntryPoint):
+    def load(self):
+        import systemnormalizer
+        from .normalizer import SystemNormalizer
+
+        systemnormalizer.SystemNormalizer = SystemNormalizer
+
+        return SystemNormalizer(**self.dict())
+
+
+system_normalizer_entry_point = SystemNormalizerEntryPoint(
+    name='SystemNormalizer',
+    description='Normalizer for the system data.',
+)

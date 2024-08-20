@@ -75,5 +75,5 @@ line-ending = "auto"
 [tool.setuptools.packages.find]
 include = ["systemnormalizer*"]
 
-[tool.setuptools.package-data]
-systemnormalizer = ["*/nomad_plugin.yaml"]
+[project.entry-points.'nomad.plugin']
+systemnormalizer = "systemnormalizer:system_normalizer_entry_point"
