@@ -22,13 +22,16 @@ import numpy as np
 import json
 from typing import Tuple
 
+import runschema  # noqa
+import simulationworkflowschema  # noqa
+runschema.run_schema_entry_point.load()
+simulationworkflowschema.simulationworkflow_schema_entry_point.load()
+
 from nomad.utils import get_logger
 from nomad.units import ureg
 from nomad.datamodel import EntryArchive
 from nomad.metainfo import MSection, Quantity, SubSection, Section
 from nomad.normalizing import normalizers
-import runschema
-import simulationworkflowschema
 
 
 LOGGER = get_logger(__name__)
