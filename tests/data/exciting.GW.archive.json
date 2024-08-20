@@ -80,182 +80,182 @@
                     {
                       "type": "APW",
                       "l_quantum_number": 0,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LO",
                       "l_quantum_number": 0,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LO",
                       "l_quantum_number": 0,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 1,
                       "update": true
                     },
                     {
                       "type": "APW",
                       "l_quantum_number": 1,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LO",
                       "l_quantum_number": 1,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LO",
                       "l_quantum_number": 1,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 1,
                       "update": true
                     },
                     {
                       "type": "LO",
                       "l_quantum_number": 1,
-                      "energy_parameter": -1.5302703974947166e-17,
+                      "energy_parameter": [-1.5302703974947166e-17],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LO",
                       "l_quantum_number": 1,
-                      "energy_parameter": -1.5302703974947166e-17,
+                      "energy_parameter": [-1.5302703974947166e-17],
                       "order": 1,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 2,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 2,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 1,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 3,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 3,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 1,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 4,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 4,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 1,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 5,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 5,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 1,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 6,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 6,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 1,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 7,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 7,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 1,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 8,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 8,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 1,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 9,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 9,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 1,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 10,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 0,
                       "update": true
                     },
                     {
                       "type": "LAPW",
                       "l_quantum_number": 10,
-                      "energy_parameter": 6.539617083310755e-19,
+                      "energy_parameter": [6.539617083310755e-19],
                       "order": 1,
                       "update": true
                     }

@@ -29,7 +29,6 @@ from nomad.metainfo import Quantity, Section, JSON
 from nomad.utils import dump_json
 
 from conftest import run_normalize, load_archive, get_template_for_structure
-import runschema
 
 
 def assert_log(caplog, level: str, event_part: str) -> LogRecord:
@@ -390,6 +389,7 @@ def test_vasp_incar_system():
     """
     Ensure we can test an incar value in the VASP example
     """
+    import runschema
 
     class Method(runschema.method.Method):
         m_def = Section(extends_base_section=True)

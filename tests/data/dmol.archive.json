@@ -1,7 +1,6 @@
 {
   "run": [
     {
-      "m_def": "runschema.run.Run",
       "program": {
         "x_dmol3_compilation_date": "Nov 12 2003 20:18:37",
         "version": "3.0"
@@ -605,7 +604,9 @@
           "multipoles": [
             {
               "dipole": {
-                "total": 1.947
+                "total": [
+                  1.947
+                ]
               }
             }
           ],
@@ -1968,7 +1969,7 @@
     }
   },
   "metadata": {
-    "mainfile": "/home/alvin/work/nomad2/nomad/dependencies/normalizers/simulation/system/tests/data/dmol3/h2o.outmol",
+    "mainfile": "/home/alvin/work/nomad2/nomad-normalizer-plugin-system/tests/data/dmol3/h2o.outmol",
     "domain": "dft"
   }
 }

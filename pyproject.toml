@@ -10,7 +10,7 @@ readme = "README.md"
 authors = [{ name = "The NOMAD Authors" }]
 license = { text = "Apache-2.0" }
 dependencies = [
-    "nomad-lab>=1.2.0",
+    "nomad-lab>=1.3.6.dev1",
 ]
 
 [project.urls]
@@ -23,7 +23,7 @@ dev = [
     "pytest-timeout==1.4.2",
     "pytest-cov==2.7.1",
     "ruff==0.1.4",
-    "ase~=3.19.0",
+    "ase~=3.22.0",
 ]
 
 tests = [
@@ -75,5 +75,5 @@ line-ending = "auto"
 [tool.setuptools.packages.find]
 include = ["systemnormalizer*"]
 
-[tool.setuptools.package-data]
-systemnormalizer = ["*/nomad_plugin.yaml"]
+[project.entry-points.'nomad.plugin']
+systemnormalizer = "systemnormalizer:system_normalizer_entry_point"

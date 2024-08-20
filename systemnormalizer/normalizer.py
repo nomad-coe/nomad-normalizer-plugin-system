@@ -67,7 +67,6 @@ def formula_normalizer(atoms):
     Formula normalization is on the basis of atom counting,
     e.g., Tc ->  Tc100, SZn -> S50Zn50, Co2Nb -> Co67Nb33
     """
-    #
     atoms_counter = atoms.symbols.formula.count()  # dictionary
     atoms_total = sum(atoms_counter.values())
 
@@ -75,7 +74,6 @@ def formula_normalizer(atoms):
     for key in atoms_counter.keys():
         norm = str(round(100 * atoms_counter[key] / atoms_total))
         atoms_normed.append(key + norm)
-    #
     atoms_normed.sort()
     return "".join(atoms_normed)
 
