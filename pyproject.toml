@@ -23,7 +23,7 @@ dev = [
     "pytest-timeout==1.4.2",
     "pytest-cov==2.7.1",
     "ruff==0.1.4",
-    "ase~=3.19.0",
+    "ase~=3.22.0",
 ]
 
 tests = [
