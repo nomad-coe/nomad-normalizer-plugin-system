@@ -498,7 +498,6 @@
           ],
           "electrons_representation": [
             {
-              "native_tier": "tight_defaults_2020",
               "type": "atom-centered orbitals",
               "scope": [
                 "wavefunction"
@@ -1518,7 +1517,7 @@
     "m_def": "simulationworkflowschema.geometry_optimization.GeometryOptimization"
   },
   "metadata": {
-    "mainfile": "/home/alvin/work/nomad2/nomad/dependencies/normalizers/simulation/system/tests/data/fhi-aims/aims.out",
+    "mainfile": "/home/alvin/work/nomad2/nomad-normalizer-plugin-system/tests/data/fhi-aims/aims.out",
     "domain": "dft"
   }
 }
