@@ -1,7 +1,6 @@
 {
   "run": [
     {
-      "m_def": "runschema.run.Run",
       "x_fhi_aims_number_of_tasks": "32",
       "x_fhi_aims_program_execution_time": 1567782027.646,
       "raw_id": "C61A2F88-A0EA-4F0B-AA47-A715868B2E26",
