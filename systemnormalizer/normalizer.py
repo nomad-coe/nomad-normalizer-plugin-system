@@ -17,7 +17,6 @@
 #
 
 from typing import Any, Dict
-from nptyping import NDArray
 import ase
 import numpy as np
 import json
@@ -491,7 +490,7 @@ class SystemNormalizer(SystemBasedNormalizer):
                     self.logger.info("Mismatch in Springer classification or compounds")
 
     def prototypes(
-        self, section_run, atom_species: NDArray, wyckoffs: NDArray, spg_number: int
+        self, section_run, atom_species: np.ndarray, wyckoffs: np.ndarray, spg_number: int
     ) -> None:
         """Tries to match the material to an entry in the AFLOW prototype data.
         If a match is found, a section_prototype is added to section_system.
