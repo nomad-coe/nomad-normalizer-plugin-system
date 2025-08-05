@@ -537,7 +537,7 @@ def query_springer_data(
 ) -> Dict[str, Any]:
     """Queries a msgpack database for springer-related quantities."""
     try:
-        from nomad import archive
+        from nomad import archive  # noqa
     except ModuleNotFoundError:
         # Skip springer data, if the infrastructure dependencies are not available
         return {}

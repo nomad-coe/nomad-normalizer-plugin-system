@@ -389,7 +389,7 @@ def test_vasp_incar_system():
     """
     Ensure we can test an incar value in the VASP example
     """
-    import runschema
+    import runschema  # noqa
 
     class Method(runschema.method.Method):
         m_def = Section(extends_base_section=True)

@@ -20,8 +20,8 @@ from nomad.config.models.plugins import NormalizerEntryPoint
 
 class SystemNormalizerEntryPoint(NormalizerEntryPoint):
     def load(self):
-        import systemnormalizer
-        from .normalizer import SystemNormalizer
+        import systemnormalizer  # noqa
+        from .normalizer import SystemNormalizer  # noqa
 
         systemnormalizer.SystemNormalizer = SystemNormalizer
 
